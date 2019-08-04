@@ -3,23 +3,30 @@ part of netflix;
 class SummaryState extends State<Summary> {
   
   void goTo(String type) {
-    Application.router.navigateTo(
-      context,
-      '${Routes.filter}',
-      transition: TransitionType.nativeModal,
-      transitionDuration: const Duration(milliseconds: 200),
-      object: {'type': type},
-    );
+    Navigator.pushNamed(
+        context,
+        Filter.route_name,
+        arguments: FilterArguments(type));
+//    Application.router.navigateTo(
+//      context,
+//      '${Routes.filter}/$type',
+//      transition: TransitionType.nativeModal,
+//      transitionDuration: const Duration(milliseconds: 200),
+//    );
   }
 
   void goToDetail(Result item, int match) {
-    Application.router.navigateTo(
+    Navigator.pushNamed(
       context,
-      '${Routes.detail}',
-      transition: TransitionType.inFromRight,
-      transitionDuration: const Duration(milliseconds: 200),
-      object: {'match': match, 'show': item},
-    );
+      TvShow.route_name,
+      arguments: TvShowArguments(match,item));
+//    Application.router.navigateTo(
+//      context,
+//      '${Routes.detail}$match&$item',
+//      transition: TransitionType.inFromRight,
+//      transitionDuration: const Duration(milliseconds: 200),
+////      object: {'match': match, 'show': item},
+//    );
   }
 
   void showTrailer() {
@@ -27,13 +34,17 @@ class SummaryState extends State<Summary> {
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
     ]).then((e) {
-      Application.router.navigateTo(
-        context,
-        Routes.video,
-        object: {'title': 'Unforgettable'},
-        transition: TransitionType.inFromBottom,
-        transitionDuration: const Duration(milliseconds: 200),
-      );
+      Navigator.pushNamed(
+          context,
+          Video.route_name,
+          arguments: VideoArguments("Unforgettable"));
+//      Application.router.navigateTo(
+//        context,
+//        "${Routes.video}/Unforgettable",
+////        object: {'title': 'Unforgettable'},
+//        transition: TransitionType.inFromBottom,
+//        transitionDuration: const Duration(milliseconds: 200),
+//      );
     });
   }
 

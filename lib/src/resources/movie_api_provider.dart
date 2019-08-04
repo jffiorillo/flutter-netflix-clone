@@ -1,7 +1,7 @@
 part of netflix;
 
 class MovieApiProvider {
-  final String host = 'https://97c89adc.ngrok.io';
+  final String host = 'http://10.0.2.2:7000';
   Client client = Client();
 
   Future<List<ItemModel>> fetchMovieList() async {

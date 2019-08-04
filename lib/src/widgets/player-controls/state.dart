@@ -94,7 +94,7 @@ class PlayerControlState extends State<PlayerControl> {
                           padding: EdgeInsets.all(0.0),
                           color: Colors.white,
                           icon: Icon(Icons.arrow_back),
-                          onPressed: () => Application.router.pop(context),
+                          onPressed: () => Navigator.pop(context),
                         ),
                         Container(
                           width: screenSize.width - 100.0,

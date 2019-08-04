@@ -3,9 +3,9 @@ part of netflix;
 class Routes {
   static String root = '/';
   static String summary = '/summary';
-  static String detail = '/detail';
-  static String filter = '/filter';
-  static String video = '/trailer';
+  static String detail = '/detail/:match&:show';
+  static String filter = '/filter/:type';
+  static String video = '/trailer/:title';
 
   static void configureRoutes(Router router) {
     router.notFoundHandler = Handler(

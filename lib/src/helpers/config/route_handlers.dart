@@ -13,22 +13,19 @@ var summaryRouteHandler = Handler(
   },
 );
 var detailRouteHandler = Handler(
-  handlerFunc: (BuildContext context, Map<String, List<String>> params,
-      [dynamic object]) {
-    return TvShow(match: object['match'], item: object['show']);
+  handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+    return TvShow(match: params['match'], item: params['show']);
   },
 );
 var trailerRouteHandler = Handler(
-  handlerFunc: (BuildContext context, Map<String, List<String>> params,
-      [dynamic object]) {
-    return Video(title: object['title']);
+  handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+    return Video(title: params['title']);
   },
 );
 var filterRouteHandler = Handler(
-  handlerFunc: (BuildContext context, Map<String, List<String>> params,
-      [dynamic object]) {
+  handlerFunc: (BuildContext context, Map<String, dynamic> params) {
     return Filter(
-      type: object['type'],
+      type: params['type'],
     );
   },
 );
